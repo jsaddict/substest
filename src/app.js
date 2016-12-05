@@ -1,23 +1,26 @@
+import substanceCss from 'substance/substance.css';
+import substanceReset from 'substance/substance-reset.css';
+import substancePageStyle from 'substance/substance-pagestyle.css'
 
-import { ProseEditor, ProseEditorConfigurator, DocumentSession, ImagePackage,  ProseEditorPackage } from 'substance/substance'
+import {
+    ProseEditorConfigurator, DocumentSession,
+    ProseEditorPackage, HeadingMacro
+} from 'substance';
 
-import { appFixture } from './appFixture'
+import appFixture from './appFixture';
+import MinimalEditor from './MinimalEditor';
 
-const config = {
-  name: 'image-example',
-  configure: function (config) {
-    config.import(ProseEditorPackage)
-    config.import(ImagePackage)
-  }
-}
+import css from './app.css';
 
-var configurator = new ProseEditorConfigurator().import(config);
+let cfg = new ProseEditorConfigurator().import(ProseEditorPackage);
+cfg.addMacro(HeadingMacro);
+
 window.onload = function () {
-  var doc = configurator.createArticle(appFixture);
-  var documentSession = new DocumentSession(doc);
+    let doc = cfg.createArticle(appFixture);
+    let documentSession = new DocumentSession(doc);
 
-  ProseEditor.mount({
-    documentSession: documentSession,
-    configurator: configurator
-  }, document.body)
+    MinimalEditor.mount({
+        documentSession: documentSession,
+        configurator: cfg
+    }, document.body)
 };

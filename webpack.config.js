@@ -20,18 +20,10 @@ module.exports = {
             'babel-polyfill',
             './app.js',
         ],
-    resolve: {
-        alias: {
-            'substance': path.resolve(__dirname, "./node_modules/substance/dist")
-        }
-    },
     module: {
         loaders: [
             {
                 test: /\.js$/,
-                include: [
-                    path.resolve(__dirname, "./src")
-                ],
                 loader: 'babel',
                 query: {
                     presets: ['es2015']
