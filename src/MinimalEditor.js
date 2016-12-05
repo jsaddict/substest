@@ -1,14 +1,24 @@
-import { ProseEditor } from 'substance';
+import { ProseEditor, ContainerEditor } from 'substance';
 
 
 export default class MinimalEditor extends ProseEditor {
 
     render($$) {
-        return super.render($$);
+        let el = $$('div').addClass('sc-minimal-editor')
+        let editor = this._renderEditor($$)
+        return el.append(editor);
     }
 
     _renderEditor($$) {
-        var el = $$('div').addClass('sc-app');
-        return el.append(super._renderEditor($$));
+        let configurator = this.props.configurator;
+        return $$(ContainerEditor,
+            {
+                disabled: this.props.disabled,
+                documentSession: this.documentSession,
+                node: this.doc.get('body'),
+                commands: configurator.getSurfaceCommandNames(),
+                textTypes: configurator.getTextTypes()
+            })
+            .ref('body');
     }
 }
