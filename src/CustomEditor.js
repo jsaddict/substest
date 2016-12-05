@@ -1,11 +1,11 @@
 import { ProseEditor, ContainerEditor } from 'substance';
 
 
-export default class MinimalEditor extends ProseEditor {
+export class CustomEditor extends ProseEditor {
 
     render($$) {
         let el = $$('div').addClass('sc-minimal-editor')
-        let editor = this._renderEditor($$)
+        let editor = this._renderEditor($$);
         return el.append(editor);
     }
 

@@ -9,7 +9,7 @@
 
 ```npm start```
 
-### Additional notes
+## Additional notes
 
 1. Substance uses '$$' notation - This basically refers to a wrapper of Cheerio implementation. It uses cheerio to compute diffs & other usecases like being used in server.
     1. Cheerio uses properties which htmlparser2 (https://github.com/fb55/htmlparser2) analyzes.
@@ -18,4 +18,24 @@
     
 1. Every component is basically just a jQuery element. So, **render** function should be returning the html content it's supposed to render on DOM.
 
-1. 
+1. Each app would have an editor, document session and cofigurator.
+    1. Editor: The UI which belongs to the raw UI which holds the text area, toolbar and other non-content related data.
+    2. Document session: This is the data where the current session data is stored.
+    3. Configurator: This is main package. This loads up utilities required for the current substance based app. The utilities could be:
+        1. Toolbar tools.
+        1. Comments.
+        1. Sidebar tools.
+        1. Content blocks.
+        1. Content converters.
+1. General flow of document load: 
+    1. Create a new Configurator which would load utilities that editor needs.
+    1. Create a document (Optionally by importing a pre-defined fixture that Configurator can convert and import.)
+    1. Create a document session from the document created in step#2
+    1. Mount the editor with document session and Configurator created above.
+
+
+## Thinking in Substance
+
+1. Substance is composed of a data model which is **source of truth** for the entire document. This is stored as a set of components (Each component can contain other components). This is purely the data structure which substance uses to do all it's operations. This is called **DOCUMENT SESSION**
+
+2. Each component decides how it renders itself. The components exclusively use the **current** data and properties it requires to render from DOCUMENT_SESSION. As the data is appended, updated - they first get updated over to document session. Since, the data that component watches for it's properties has been updated, it renders according to the new data.

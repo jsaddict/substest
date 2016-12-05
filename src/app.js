@@ -1,25 +1,25 @@
 import substanceCss from 'substance/substance.css';
 import substanceReset from 'substance/substance-reset.css';
 import substancePageStyle from 'substance/substance-pagestyle.css'
-
-import {
-    ProseEditorConfigurator, DocumentSession,
-    ProseEditorPackage, HeadingMacro
-} from 'substance';
+import { DocumentSession, Configurator } from 'substance';
 
 import appFixture from './appFixture';
-import MinimalEditor from './MinimalEditor';
+import { CustomEditor } from './CustomEditor';
+import { CustomConfigurator } from './CustomConfigurator';
 
 import css from './app.css';
 
-let cfg = new ProseEditorConfigurator().import(ProseEditorPackage);
-cfg.addMacro(HeadingMacro);
+const cfg = new Configurator();
+cfg.import(CustomConfigurator);
+
 
 window.onload = function () {
-    let doc = cfg.createArticle(appFixture);
-    let documentSession = new DocumentSession(doc);
+    // Here, we use a configurator who has html importer. So, we can use a HTML fixture
+    const importer = cfg.createImporter('html');
+    const doc = importer.importDocument(appFixture);
+    const documentSession = new DocumentSession(doc);
 
-    MinimalEditor.mount({
+    CustomEditor.mount({
         documentSession: documentSession,
         configurator: cfg
     }, document.body)
