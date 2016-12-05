@@ -1,0 +1,43 @@
+{
+  "name": "typo",
+  "version": "0.1.0",
+  "description": "A simple substance based app",
+  "main": "server.js",
+  "author": "Rama Chandu",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "start": "NODE_ENV=dev node ./server",
+    "build": "webpack --optimize-minimize",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "lodash": "^4.17.2",
+    "substance": "^1.0.0-beta.5.8"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.5.3",
+    "babel-core": "^6.18.2",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "^6.2.8",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-polyfill": "^6.16.0",
+    "babel-preset-es2015": "^6.18.0",
+    "compression-webpack-plugin": "^0.3.2",
+    "css-loader": "^0.26.1",
+    "eslint": "^3.11.1",
+    "express": "^4.14.0",
+    "file-loader": "^0.9.0",
+    "jest": "^17.0.3",
+    "nodemon": "^1.11.0",
+    "postcss": "^5.2.6",
+    "postcss-cssnext": "^2.9.0",
+    "postcss-loader": "^1.2.0",
+    "precss": "^1.4.0",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.3",
+    "webpack-dev-middleware": "^1.8.4",
+    "webpack-hot-middleware": "^2.13.2"
+  }
+}
