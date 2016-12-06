@@ -1,6 +1,6 @@
 {
   "name": "typo",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "A simple substance based app",
   "main": "server.js",
   "author": "Rama Chandu",

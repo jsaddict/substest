@@ -1,13 +1,15 @@
 # substest
 
-## Pre-requisities
+## Thinking in Substance
 
-1. Clone the repository from ''
-1. ```npm install```
+1. Substance is composed of a data model which is **source of truth** for the entire document. This is purely the data structure which substance uses to do all it's operations. This is called **DOCUMENT SESSION** which is generated from a document and is a set of **container nodes**
 
-## How to run
+2. In regard to rendering the data model, we create components which can convert the entities in data model into a renderable form (HTML, XML, PDF, SVG, etc). Each component decides how it renders itself. The components exclusively use the **current** data and properties it requires to render from DOCUMENT_SESSION. This generally in HTMl is a set of **component nodes**
 
-```npm start```
+3. Data is 1-way binding only.
+    1. As the data is appended, updated - they first get updated over to document session. 
+    1. The component that watches for it's properties updates & renders with new data.
+
 
 ## Additional notes
 
@@ -32,14 +34,19 @@
     1. Create a document (Optionally by importing a pre-defined fixture that Configurator can convert and import.)
     1. Create a document session from the document created in step#2
     1. Mount the editor with document session and Configurator created above.
+1. Editing behavior: This controls how, where and when the nodes break, merge, etc.
+    * For reference, breakNode.js#breakNode() takes the current transaction (In this case it is the keydown event of enter). In the function it checks if the node supports the breaking behavior and then operates the breaking action of node.
+    * Breaking behavior for nodes who respond to isText() as true is automatically handled. TextNode descendants generally are breakable.
+    ```
+        A transformation that breaks a node at the current position,
+        e.g. used when you hit ENTER inside a paragraph.
+        @function
+        @param {model/TransactionDocument} tx the document instance
+        @param {Object} args object with fields `selection`, `containerId`
+    ```
 
+## Current Project setup
 
-## Thinking in Substance
-
-1. Substance is composed of a data model which is **source of truth** for the entire document. This is purely the data structure which substance uses to do all it's operations. This is called **DOCUMENT SESSION** which is generated from a document.
-
-2. In regard to rendering the data model, we create components which can convert the entities in data model into a renderable form (HTML, XML, PDF, SVG, etc). Each component decides how it renders itself. The components exclusively use the **current** data and properties it requires to render from DOCUMENT_SESSION.
-
-3. Data is 1-way binding only.
-    1. As the data is appended, updated - they first get updated over to document session. 
-    1. The component that watches for it's properties updates & renders with new data.
+1. Clone the repository from ''
+1. run ```npm install```
+1. run ```npm start``` and navigate to http://localhost:5555/

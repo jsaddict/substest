@@ -5,6 +5,7 @@ import {
 
 import { SimpleHTMLImporter } from './importers/HTMLImporters';
 import BodyPackage from './packages/body/BodyPackage';
+import InlinePackage from './packages/inline';
 
 export const CustomConfigurator = {
     name: 'custom-configurator',
@@ -20,14 +21,16 @@ export const CustomConfigurator = {
         // functionalities individually if you need more control
         config.import(BasePackage);
 
+        // Custom nodes
+        config.import(BodyPackage);
+        config.import(InlinePackage);
+
         // core nodes
         config.import(ParagraphPackage);
         config.import(HeadingPackage);
         config.import(StrongPackage, { toolTarget: 'annotations' });
         config.import(EmphasisPackage, { toolTarget: 'annotations' });
         config.import(LinkPackage, { toolTarget: 'annotations' });
-
-        config.import(BodyPackage);
 
         // Override Importer/Exporter
         config.addImporter('html', SimpleHTMLImporter);
