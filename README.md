@@ -36,6 +36,10 @@
 
 ## Thinking in Substance
 
-1. Substance is composed of a data model which is **source of truth** for the entire document. This is stored as a set of components (Each component can contain other components). This is purely the data structure which substance uses to do all it's operations. This is called **DOCUMENT SESSION**
+1. Substance is composed of a data model which is **source of truth** for the entire document. This is purely the data structure which substance uses to do all it's operations. This is called **DOCUMENT SESSION** which is generated from a document.
 
-2. Each component decides how it renders itself. The components exclusively use the **current** data and properties it requires to render from DOCUMENT_SESSION. As the data is appended, updated - they first get updated over to document session. Since, the data that component watches for it's properties has been updated, it renders according to the new data.
+2. In regard to rendering the data model, we create components which can convert the entities in data model into a renderable form (HTML, XML, PDF, SVG, etc). Each component decides how it renders itself. The components exclusively use the **current** data and properties it requires to render from DOCUMENT_SESSION.
+
+3. Data is 1-way binding only.
+    1. As the data is appended, updated - they first get updated over to document session. 
+    1. The component that watches for it's properties updates & renders with new data.
