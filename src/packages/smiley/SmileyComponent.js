@@ -9,7 +9,6 @@ export default class SmileyNode extends Component {
         let el = $$('span')
             .addClass('sc-smiley')
             .text('🙂');
-            // debugger;
         return el;
     }
 }

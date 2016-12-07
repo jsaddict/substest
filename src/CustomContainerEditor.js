@@ -2,7 +2,7 @@ import { ContainerEditor, keys } from 'substance';
 
 
 
-export class CustomContainerEditor extends ContainerEditor {
+export default class CustomContainerEditor extends ContainerEditor {
     constructor(parent, props) {
         super(parent, props);
     }

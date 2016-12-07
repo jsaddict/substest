@@ -10,3 +10,15 @@ body {
     top: 0px;
     font-size: small;
 }
+
+.sc-toolbar {
+    background: #e6e6e6;
+}
+
+.se-tool button {
+    box-shadow: 0px 0px 4px 1px #3e3e3e;
+}
+
+.se-toggle {
+    box-shadow: 0px 0px 4px 1px #3e3e3e;
+}

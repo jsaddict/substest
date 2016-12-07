@@ -1,4 +1,6 @@
-import { Component, ContainerEditor } from 'substance'
+import { Component } from 'substance'
+
+import CustomContainerEditor from '../../CustomContainerEditor';
 
 class BodyComponent extends Component {
     render($$) {
@@ -8,7 +10,7 @@ class BodyComponent extends Component {
             .attr('data-id', this.props.node.id);
 
         el.append(
-            $$(ContainerEditor, {
+            $$(CustomContainerEditor, {
                 disabled: this.props.disabled,
                 node: node,
                 commands: this.props.commands,
