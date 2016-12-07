@@ -1,5 +1,7 @@
 import { ProseEditor, ContainerEditor } from 'substance';
 
+import { CustomContainerEditor } from './CustomContainerEditor';
+
 
 export class CustomEditor extends ProseEditor {
 
@@ -11,7 +13,7 @@ export class CustomEditor extends ProseEditor {
 
     _renderEditor($$) {
         let configurator = this.props.configurator;
-        return $$(ContainerEditor,
+        return $$(CustomContainerEditor,
             {
                 disabled: this.props.disabled,
                 documentSession: this.documentSession,

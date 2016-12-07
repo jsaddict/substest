@@ -1,4 +1,4 @@
-import { Container, TextBlock} from 'substance';
+import { TextBlock} from 'substance';
 
 export const NodeType = 'p';
 

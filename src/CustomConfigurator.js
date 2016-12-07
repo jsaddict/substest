@@ -6,6 +6,7 @@ import {
 import { SimpleHTMLImporter } from './importers/HTMLImporters';
 import BodyPackage from './packages/body/BodyPackage';
 import InlinePackage from './packages/inline';
+import SmileyPackage from './packages/smiley';
 
 export const CustomConfigurator = {
     name: 'custom-configurator',
@@ -24,6 +25,7 @@ export const CustomConfigurator = {
         // Custom nodes
         config.import(BodyPackage);
         config.import(InlinePackage);
+        config.import(SmileyPackage);
 
         // core nodes
         config.import(ParagraphPackage);

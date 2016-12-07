@@ -1,6 +1,6 @@
-import { InlineNode, NodeType } from './InlineNode'
-import InlineComponent from './InlineComponent'
-import InlineConverter from './InlineConverter'
+import { InlineNode, NodeType } from './InlineNode';
+import InlineComponent from './InlineComponent';
+import InlineConverter from './InlineConverter';
 
 export default {
     name: 'p',
