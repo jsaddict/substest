@@ -1,6 +1,6 @@
 import { Component } from 'substance';
 
-export default class SmileyNode extends Component {
+export default class extends Component {
     dispose() {
         this.props.node.off(this);
     }

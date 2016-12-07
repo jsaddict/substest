@@ -12,7 +12,7 @@ body {
 }
 
 .sc-toolbar {
-    background: #e6e6e6;
+    background: #ececec;
 }
 
 .se-tool button {
@@ -21,4 +21,5 @@ body {
 
 .se-toggle {
     box-shadow: 0px 0px 4px 1px #3e3e3e;
+    border-radius: 6px;
 }

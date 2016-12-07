@@ -5,7 +5,7 @@ import {
 
 import { SimpleHTMLImporter } from './importers/HTMLImporters';
 import BodyPackage from './packages/body/BodyPackage';
-import InlinePackage from './packages/inline';
+import customPara from './packages/customPara';
 import SmileyPackage from './packages/smiley';
 
 export const CustomConfigurator = {
@@ -24,7 +24,7 @@ export const CustomConfigurator = {
 
         // Custom nodes
         config.import(BodyPackage);
-        config.import(InlinePackage);
+        config.import(customPara);
         config.import(SmileyPackage);
 
         // core nodes

@@ -1,4 +1,4 @@
-import { NodeType } from './InlineNode';
+import { NodeType } from './CustomParaNode';
 
 export default {
     type: NodeType,
